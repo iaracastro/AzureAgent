@@ -13,7 +13,7 @@ Basta selecionar a coluna desejada na interface, e o agente realizará a anális
 - Principais elogios e críticas
 - Observações relevantes destacadas pelo modelo
 
-O agente foi configurado no Azure Foundry com prompts e instruções específicas, garantindo que toda a análise seja estruturada, clara e acionável. Exemplo de uso:
+O agente foi configurado no Azure Foundry com prompts e instruções específicas, garantindo que toda a análise seja estruturada, clara e acionável. Exemplo de uso com `pesquisa_de_comentarios_pos_evento.csv`:
 
 ![Exemplo](example.png "Optional title")
 
