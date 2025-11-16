@@ -56,6 +56,11 @@ pip install -r requirements.txt
 
 > ⚠️ Para usar o projeto, é necessário possuir um ID de agente (AGENT_ID) e um endpoint de projeto (PROJECT_ENDPOINT) válidos, vinculados à sua própria conta Azure com créditos ou permissão para uso do Azure AI Foundry.
 
+Primeiro autentique sua conta Azure no terminal com:
+```
+az login
+```
+
 <u>✔ Método A — Variáveis de ambiente (recomendado)</u>
 Crie um arquivo .env na raiz:
 
@@ -63,11 +68,8 @@ Crie um arquivo .env na raiz:
 AGENT_ID=asst_xxx...
 PROJECT_ENDPOINT=https://<seu-projeto>.services.ai.azure.com
 ```
-Em seguida, autentique sua conta Azure no terminal com:
-```
-az login
-```
-A autenticação garante que o SDK do Azure consiga acessar os recursos do seu agente no Foundry. Para mais detalhes, clique [aqui](](docs/Passo%20a%20Passo.pdf)).
+
+A autenticação garante que o SDK do Azure consiga acessar os recursos do seu agente no Foundry. Para mais detalhes, clique [aqui](docs/Passo%20a%20Passo.pdf).
 
 <u>✔ Método B — Preenchendo no próprio Streamlit (sidebar)</u>
 Basta preenhcer os campos:
@@ -93,26 +95,19 @@ streamlit run app.py
 
 ## 📚 Referências e Links
 
-[SDKs do Azure para Python](https://azure.github.io/azure-sdk/releases/latest/python.html)
-: Documentação dos SDKs utilizados para autenticação e integração com serviços Azure, inclusive o pacote _azure-ai-agents_.
+[SDKs do Azure para Python](https://azure.github.io/azure-sdk/releases/latest/python.html): Documentação dos SDKs utilizados para autenticação e integração com serviços Azure, inclusive o pacote _azure-ai-agents_.
 
-[Instalação da CLI do Azure no Linux](https://learn.microsoft.com/pt-br/cli/azure/install-azure-cli-linux?view=azure-cli-latest&pivots=apt)
-: Guia oficial para instalação do Azure CLI, ferramenta usada para autenticação local.
+[Instalação da CLI do Azure no Linux](https://learn.microsoft.com/pt-br/cli/azure/install-azure-cli-linux?view=azure-cli-latest&pivots=apt): Guia oficial para instalação do Azure CLI, ferramenta usada para autenticação local.
 
-[Autenticação Local com Azure CLI para Python](https://learn.microsoft.com/pt-br/azure/developer/python/sdk/authentication/local-development-dev-accounts?tabs=azure-cli%2Csign-in-azure-cli)
-: Explica como usar o comando _az login_ e como a autenticação é utilizada pelos SDKs Python.
+[Autenticação Local com Azure CLI para Python](https://learn.microsoft.com/pt-br/azure/developer/python/sdk/authentication/local-development-dev-accounts?tabs=azure-cli%2Csign-in-azure-cli): Explica como usar o comando _az login_ e como a autenticação é utilizada pelos SDKs Python.
 
-[Threads, Runs e Messages em Agents](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/threads-runs-messages)
-: Explica o funcionamento do ciclo de execução de agentes no Foundry e a lógica de mensagens usadas pelo backend.
+[Threads, Runs e Messages em Agents](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/threads-runs-messages): Explica o funcionamento do ciclo de execução de agentes no Foundry e a lógica de mensagens usadas pelo backend.
 
-[Verificação de Regiões dos Modelos](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/model-region-support?tabs=global-standard)
-: Neste link está explicado quais modelos do Azure Foundry estão disponíveis para uso em quais regiões e limitações de deploy.
+[Verificação de Regiões dos Modelos](https://learn.microsoft.com/en-us/azure/ai-foundry/agents/concepts/model-region-support?tabs=global-standard): Neste link está explicado quais modelos do Azure Foundry estão disponíveis para uso em quais regiões e limitações de deploy.
 
-[Azure Foundry (AI Studio)](https://learn.microsoft.com/pt-br/azure/ai-foundry)
-: Documentação oficial sobre o ambiente de criação, orquestração e deploy de projetos de IA usando Azure Foundry.
+[Azure Foundry (AI Studio)](https://learn.microsoft.com/pt-br/azure/ai-foundry): Documentação oficial sobre o ambiente de criação, orquestração e deploy de projetos de IA usando Azure Foundry.
 
-[Streamlit](https://streamlit.io)
-: Documentação da ferramenta utilizada para a interface web local.
+[Streamlit](https://streamlit.io): Documentação da ferramenta utilizada para a interface web local.
 
 ---
 

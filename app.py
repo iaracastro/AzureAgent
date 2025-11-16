@@ -5,6 +5,7 @@ import streamlit as st
 st.set_page_config(page_title="Feedback Analyzer", layout="wide")
 st.title("Feedback Analyzer with Azure Foundry Agent")
 
+
 st.sidebar.header("Azure Agent Configuration")
 agent_id_input = st.sidebar.text_input("AGENT_ID", value="")
 project_endpoint_input = st.sidebar.text_input("PROJECT_ENDPOINT", value="")
@@ -12,11 +13,20 @@ st.sidebar.markdown("If you prefer, set `AGENT_ID` and `PROJECT_ENDPOINT` as env
 
 uploaded_file = st.file_uploader("Upload your feedback CSV", type=["csv"])
 
+col1, col2 = st.columns([1, 2])
+with col1:
+    separator = st.text_input("CSV Separator", value=";")
+with col2:
+    encoding = st.selectbox("File Encoding", options=["windows-1252", "utf-8"])
+
 if uploaded_file is None:
-    st.info("Please upload a CSV file from Microsoft Forms to start.")
+    st.info("Please upload a CSV file to start. Default parameters are meant for Microsoft Forms exports.")
+elif separator == "":
+    st.error("Please provide a valid CSV separator.")
+    st.stop()
 else:
     try:
-        df = pd.read_csv(uploaded_file, encoding="windows-1252", sep=";")
+        df = pd.read_csv(uploaded_file, encoding=encoding, sep=separator)
     except Exception as e:
         st.error(f"Failed to parse CSV: {e}")
         st.stop()
@@ -31,7 +41,6 @@ else:
         st.stop()
 
     selected_col = st.selectbox("Select column with feedback text", cols)
-
     run_button = st.button("Send to model")
 
     if run_button:
@@ -59,3 +68,5 @@ else:
 
 st.sidebar.markdown("---")
 st.sidebar.markdown("Quick run: `python -m streamlit run app.py`")
+
+

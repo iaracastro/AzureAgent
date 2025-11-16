@@ -1,13 +1,11 @@
 import os
 from typing import Optional
-
 import pandas as pd
 from azure.ai.agents import AgentsClient
 from azure.identity import DefaultAzureCredential
 from dotenv import load_dotenv
 
 load_dotenv()
-
 
 def build_message(data: list[str]) -> str:
     quotes = '"""'
@@ -65,3 +63,4 @@ def run_agent(
         return get_response(client, response.thread_id)
     except Exception as exc:
         raise RuntimeError(f"Failed to get agent response: {exc}")
+
